@@ -103,11 +103,11 @@ def get_package_strings(apk_path, analyze_dex=True, analyze_so=False):
 					library_name = library.__str__().split('/')[-1]
 					libraries[library_name] = library
 
-            for (filename, library) in libraries.items():
-                logger.info(f"Analyzing {library}...")
-                time.sleep(.1)
-                with library.open("rb") as f:
-                    for string in get_binary_strings(f):
-                        yield string
+			for (filename, library) in libraries.items():
+				logger.info(f"Analyzing {library}...")
+				time.sleep(.1)
+				with library.open("rb") as f:
+					for string in get_binary_strings(f):
+						yield string
 		else:
 			logger.info(f'No .so libraries found in "{apk_path}".')
