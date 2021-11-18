@@ -101,7 +101,7 @@ def get_package_strings(apk_path, analyze_dex=True, analyze_so=False):
 			for package_libraries in zipfile.Path(package, 'lib/').iterdir():
 				for library in package_libraries.iterdir():
 					library_name = library.__str__().split('/')[-1]
-                    libraries[library_name] = library
+					libraries[library_name] = library
 
             for (filename, library) in libraries.items():
                 logger.info(f"Analyzing {library}...")
